@@ -1,0 +1,15 @@
+name: glacier-env
+channels:
+  - conda-forge
+  - nodefaults
+  - defaults
+dependencies:
+  - python=3.12
+  - earthaccess
+  - matplotlib
+  - numpy
+  - pandas
+  - rioxarray
+  - xarray
+  - ipykernel
+prefix: /home/jovyan/.local/share/envs/glacier-env
