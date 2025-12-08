@@ -24,7 +24,7 @@ project:
     #- file: project-description.md
     
 site:
-  template: article-theme
+  template: book-theme
   options:
     favicon: figures/favicon.ico
     logo: figures/glaciericon.png
