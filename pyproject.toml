@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glaciers"
+version = "0.1.0"
+authors = [
+  { name="Ethan Briel" },
+  { name="Param Gandhi"},
+  { name="Eden Lange"},
+  { name="Char Tomlinson"}
+]
+description = "A Python library for working with glacier data"
+readme = "README.md"
+
+requires-python = ">=3.9"
+dependencies = [
+    "earthaccess",
+	"matplotlib",
+    "numpy",
+    "pandas",
+    "rioxarray",
+    "xarray",
+    "ipykernel"
+]
+
+keywords = ["tools", "glacier"]
+
+[project.urls]
+Homepage = "https://github.com/UCB-stat-159-f25/final-group06"
+Issues = "https://github.com/UCB-stat-159-f25/final-group06/issues"
+
+[tool.setuptools]
+packages = ["glaciers"]
+
+[tool.setuptools.dynamic]
+version = {attr = "glaciers.__version__"}
