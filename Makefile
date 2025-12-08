@@ -8,7 +8,7 @@ env:
 		conda env create -n glacier-env -f environment.yml; \
 	fi
 
-NOTEBOOKS = EDA.ipynb KarakoramAnalysis.ipynb Non-KarakoramAnalysis.ipynb main.ipynb
+NOTEBOOKS = eda.ipynb karakoram_analysis.ipynb non-karakoram_analysis.ipynb main.ipynb
 
 all: env
 	@echo "Running all notebooks:"
