@@ -28,3 +28,4 @@ site:
   options:
     favicon: figures/favicon.ico
     logo: figures/glaciericon.png
+    logo_dark: figures/glaciericon_dark.png
