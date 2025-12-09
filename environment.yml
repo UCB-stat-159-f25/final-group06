@@ -12,4 +12,5 @@ dependencies:
   - rioxarray
   - xarray
   - ipykernel
+  - pytest 
 prefix: /home/jovyan/.local/share/envs/glacier-env
