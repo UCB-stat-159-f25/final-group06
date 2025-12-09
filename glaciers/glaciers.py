@@ -49,15 +49,16 @@ def midpoint(t):
         return pd.NaT
 
 
-def geotiff_to_ds(geotiff_list, time):
+def geotiff_to_ds(data_path):
 	"""
-	geotiff_list: geotiff_list = glob.glob(data_path) where data_path is the string data path for desired glacier data
+	data_path: path to stored data in string format
+		example: "data/Karakoram/*_vm*.tif"
+	"""
 
-    time: result of using the paths_to_datetimeindex function
-	"""
+	geotiff_list = glob.glob(data_path)
 		
 	# Create variable used for time axis
-	time_var = xr.Variable('time', time)
+	time_var = xr.Variable('time', paths_to_datetimeindex(geotiff_list))
 		
 	# Load in and concatenate all individual GeoTIFFs
 	geotiffs_da = xr.concat(
@@ -70,6 +71,11 @@ def geotiff_to_ds(geotiff_list, time):
 		
 	# Rename the variable to a more useful name
 	geotiffs_ds = geotiffs_ds.rename({1: 'x_vel', 2: 'y_vel', 3: 'vel_magnitude'})
+		
+	#Adding midpoint time for sorting
+	mid_times = [midpoint(t) for t in geotiffs_ds.time.values]
+	geotiffs_ds = geotiffs_ds.assign_coords(mid_time=("time", mid_times))
+	geotiffs_ds = geotiffs_ds.sortby("mid_time")
 		
 	# Print the output
 	return(geotiffs_ds)
