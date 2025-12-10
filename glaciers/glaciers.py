@@ -27,7 +27,6 @@ def paths_to_datetimeindex(paths):
     string_slice should give the full date range substring.
     Example substring: '20190606-20190622'
     """
-    paths = sorted(paths)
     
     labels = []
     for p in paths:

@@ -3,11 +3,11 @@ from glaciers import *
 # import all functions to run base tests of outputs
 
 def test_datetime():
-	file_path = glob.glob("data/Karakoram/*_vm_*.tif")
+	file_path = sorted(glob.glob("data/Karakoram/*_vm_*.tif"))
 	assert paths_to_datetimeindex(file_path)[0] == '2019-03-18 - 2019-04-03'
 
 def test_midpoint():
-	geotiff_list = glob.glob("data/Karakoram/*_vm_*.tif")
+	geotiff_list = sorted(glob.glob("data/Karakoram/*_vm_*.tif"))
 
 	# Create variable used for time axis
 	time_var = xr.Variable('time', paths_to_datetimeindex(geotiff_list))
