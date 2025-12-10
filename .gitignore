@@ -1,3 +1,7 @@
 
 # MyST build outputs
 _build
+
+glaciers.egg-info/
+
+images/
