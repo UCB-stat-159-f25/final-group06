@@ -6,45 +6,43 @@
 This analysis compares the South Rimo Glacier in the Karakoram with two other “Surge Type” glaciers: the Medvezhiy Glacier in the Pamir mountains of  nearby Tajikistan and the Nàłùdäy/Lowell Glacier in Northwestern Canada. The project seeks to answer whether there is evidence of the Karakoram anomaly within this comparison, using statistical analysis of glacial velocity.
 
 ## Dataset
-The dataset is the Select Northern Hemisphere Glacier Velocity Maps Using Customized autoRIFT and PlanetScope Imagery, Version 1. The data set maps five select glaciers using CautoRIFT, “a pipeline that improves temporal coverage during periods of rapid glacier motion by adding pre-processed, daily high-resolution PlanetScope images and customized feature tracking parameters for each glacier to NASA's autonomous Repeat Image Feature Tracking (autoRIFT) algorithm for Sentinel-2 and Landsat imagery. Stable surface masks, area of interest (AOI) and glacier outlines, and ancillary data are also available for each glacier site” (Liu, J., Gendreau, M., Enderlin, E. M. & Aberle, R. (2025). For this project we used three of the five selected glaciers (listed in overview). 
-The data is available via multiple forms of Earthdata download through the National Snow and Ice Data Center. For for increased ease of reproducibility, this project loads the data through the earthaccess Python library. 
+The dataset is the Select Northern Hemisphere Glacier Velocity Maps Using Customized autoRIFT and PlanetScope Imagery, Version 1. The data set maps five select glaciers using CautoRIFT, “a pipeline that improves temporal coverage during periods of rapid glacier motion by adding pre-processed, daily high-resolution PlanetScope images and customized feature tracking parameters for each glacier to NASA's autonomous Repeat Image Feature Tracking (autoRIFT) algorithm for Sentinel-2 and Landsat imagery. Stable surface masks, area of interest (AOI) and glacier outlines, and ancillary data are also available for each glacier site” (Liu, J., Gendreau, M., Enderlin, E. M. & Aberle, R. (2025). For this project we used three of the five selected glaciers (listed in overview). The data is available via multiple forms of Earthdata download through the National Snow and Ice Data Center. For for increased ease of reproducibility, this project loads the data through the earthaccess Python library. 
 
 ## Project Website
 The project’s MyST website can be accessed [here](ucb-stat-159-f25.github.io/final-group06/).
 
 ## Repository Structure
 The repository is structured as follows:
-`data/`: Contains the raw dataset and processed data files
-`figures/`: Contains the generated figures and plots
-`glaciers/`: Contains the 
-`utils/`: Contains utility functions and modules used throughout the project
-`eda.ipyn`b: Notebook which loads in earth access data and performs initial preprocessing. 
-`main.ipynb`: Notebook which provides a comparative overview of the analysis and results. 
-`karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the South Rimo Glacier in the Karakoram. 
-`non-karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the Medvezhiy Glacier in Tajikistan and the Nàłùdäy/Lowell Glacier in Canada. 
-`environment.yml`: Environment file with required packages for the project
-`Makefile`: Makefile to build JupyterBook for the repository and manage other tasks
+`data/`: Contains the raw dataset and processed data files.  
+`figures/`: Contains the generated figures and plots.  
+`glaciers/`: Contains out custom package and tests.  
+`eda.ipynb`: Notebook which loads in earth access data and performs initial preprocessing.  
+`main.ipynb`: Notebook which provides a comparative overview of the analysis and results.   
+`karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the South Rimo Glacier in the Karakoram.   
+`non-karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the Medvezhiy Glacier in Tajikistan and the Nàłùdäy/Lowell Glacier in Canada.   
+`environment.yml`: Environment file with required packages for the project.  
+`Makefile`: Makefile to build JupyterBook for the repository and manage other tasks.
 
 ## Setup and Installation
 Clone this repository:
 git clone https://github.com/UCB-stat-159-f25/final-group06.git
 
-Create and activate the `glaciers-env` environment:
-canda env create -f environment.yml 
-conda activate glaciers
+Create and activate the `glaciers-env` environment:  
+conda env create -f environment.yml   
+conda activate glaciers  
 
-or simply: 
-make env 
-conda activate glaciers
+or simply:   
+make env   
+conda activate glaciers  
 
-Install the IPython kernel with the `glaciers-env` environment:
+Install the IPython kernel with the `glaciers-env` environment:  
 python -m ipykernel install --user --name glaciers-env --display-name "IPython - Glacier"
 
 ## Usage
-To make the environment, run:
+To make the environment, run:  
 make env
 
-To execute all notebooks, run:
+To execute all notebooks, run:  
 make all
 
 ## Package Structure
