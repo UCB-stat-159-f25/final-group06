@@ -1,7 +1,8 @@
 ---
 title: 'Analyzing Surge Type Glacial Velocity and the Presence of the Karakoram Anomaly in Select N. Hemisphere Glaciers'
-subtitle: 'UC Berkeley, Fall 2025'
+subtitle: 'UC Berkeley STAT 159/259 Fall 2025'
 ---
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/berkeley-stat159/fall-2025/HEAD)
 
 ::::{grid} 1 2 2 2
 :::{card}
@@ -42,7 +43,7 @@ subtitle: 'UC Berkeley, Fall 2025'
 :::{card}
 :header: **Ethan Briel**
 
-![Ethan_Briel](images/ethan.jpeg)
+![Ethan_Briel](images/ethan.jpg)
 
 +++
 
@@ -53,5 +54,5 @@ subtitle: 'UC Berkeley, Fall 2025'
 
 ::::
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/berkeley-stat159/fall-2025/HEAD)
+
 
