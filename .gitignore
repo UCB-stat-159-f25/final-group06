@@ -1,6 +1,3 @@
-
-# MyST build outputs
-_build
-
+_build # MyST build outputs
+.ipynb_checkpoints
 glaciers.egg-info/
-
