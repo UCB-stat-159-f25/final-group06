@@ -4,7 +4,7 @@ from glaciers import *
 
 def test_datetime():
 	file_path = glob.glob("data/Karakoram/*_vm_*.tif")
-	assert paths_to_datetimeindex(file_path)[0] == '2021-10-14 - 2021-10-19'
+	assert paths_to_datetimeindex(file_path)[0] == '2019-03-18 - 2019-04-03'
 
 def test_midpoint():
 	geotiff_list = glob.glob("data/Karakoram/*_vm_*.tif")
@@ -26,7 +26,7 @@ def test_midpoint():
 	
 	#Adding midpoint time for sorting
 	mid_times = [midpoint(t) for t in geotiffs_ds.time.values]
-	assert mid_times[0].value == 1634385600000000000
+	assert mid_times[0].value == 1553558400000000000
 
 def test_to_ds():
     import xarray as xr

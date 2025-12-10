@@ -23,10 +23,12 @@ import os
 
 def paths_to_datetimeindex(paths):
     """
-    Extract the FIRST date from each filename and return a pandas.DatetimeIndex.
+    Extract the FIRST date range from each filename and return a pandas.DatetimeIndex.
     string_slice should give the full date range substring.
     Example substring: '20190606-20190622'
     """
+    paths = sorted(paths)
+    
     labels = []
     for p in paths:
         fname = p.split('/')[-1]
