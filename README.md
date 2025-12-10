@@ -45,7 +45,10 @@ To make the environment, run:
 make env  
 
 To execute all notebooks, run:  
-make all  
+make all 
+
+To save notebooks as pdfs into `pdf_builds` directory, run:  
+make pdfs
 
 
 ## Package Structure
