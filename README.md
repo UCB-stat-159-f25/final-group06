@@ -47,8 +47,8 @@ make env
 To execute all notebooks, run:  
 make all 
 
-To save notebooks as pdfs into `pdf_builds` directory, run:  
-make pdfs
+To generate notebook pdfs, run:  
+myst build `notebook_name`.ipynb --pdf
 
 
 ## Package Structure
