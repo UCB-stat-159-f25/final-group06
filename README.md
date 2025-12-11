@@ -1,4 +1,4 @@
-# Analyzing Surge Type Glacial Velocity and the Presence of the Karakoram Anomaly in Select N. Hemisphere Glaciers. 
+# The Karakoram Anomaly: Glacier Velocity Analysis 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group06.git/HEAD)
 
