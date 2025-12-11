@@ -18,13 +18,3 @@ all:
 			--to notebook --execute $$nb --inplace \
 			--ExecutePreprocessor.kernel_name="glacier-env"; \
 	done
-
-pdfs:
-	@echo "Exporting notebooks to pdf_builds directory"
-	@for nb in $(NOTEBOOKS); do \
-		echo "Exporting $$nb to PDF"; \
-		myst build $$nb --pdf; \
-		PDF_NAME=$$(basename $$nb .ipynb | tr '_' '-').pdf; \
-		mv _build/exports/$$PDF_NAME pdf_builds/; \
-	done
-	@echo "All notebooks exported to pdf_builds"
