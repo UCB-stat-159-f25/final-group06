@@ -47,7 +47,7 @@ subtitle: 'UC Berkeley STAT 159/259 Fall 2025'
 
 +++
 
-* **Senior Undergraduate**: Statistics and Data Science
+* **Senior Undergraduate**: Astrophysics and Statistics
 * **Pronouns**: He/They
 * [e_brielberkeley.edu](mailto:e_briel@berkeley.edu)
 :::
