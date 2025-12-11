@@ -2,7 +2,7 @@
 title: 'Analyzing Surge Type Glacial Velocity and the Presence of the Karakoram Anomaly in Select N. Hemisphere Glaciers'
 subtitle: 'UC Berkeley STAT 159/259 Fall 2025'
 ---
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/berkeley-stat159/fall-2025/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group06.git/HEAD)
 
 ::::{grid} 1 2 2 2
 :::{card}
