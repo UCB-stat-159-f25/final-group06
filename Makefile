@@ -10,7 +10,7 @@ env:
 
 NOTEBOOKS = eda.ipynb karakoram_analysis.ipynb non-karakoram_analysis.ipynb main.ipynb
 
-all: env
+all:
 	@echo "Running all notebooks:"
 	@for nb in $(NOTEBOOKS); do \
 		echo "Executing $$nb."; \
