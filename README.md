@@ -4,7 +4,7 @@
 
 
 ## Overview
-This repo contains an analysis comparing the South Rimo Glacier in the Karakoram with two other “Surge Type” glaciers: the Medvezhiy Glacier in the Pamir mountains of  nearby Tajikistan and the Nàłùdäy/Lowell Glacier in Northwestern Canada. The project seeks to answer whether there is evidence of the Karakoram anomaly within this comparison, using statistical analysis of glacial velocity.
+This repo contains an analysis comparing the South Rimo Glacier in the Karakoram with two other “Surge Type” glaciers: the Medvezhiy Glacier in the Pamir mountains of  nearby Tajikistan and the Sít’ Kusá Glacier in Alaska's St. Elias Mountains. The project seeks to answer whether there is evidence of the Karakoram anomaly within this comparison, using statistical analysis of glacial velocity.
 
 
 ## Data Set
@@ -23,7 +23,7 @@ The repository is structured as follows:
 `eda.ipynb`: Notebook which loads in earth access data and performs initial preprocessing  
 `main.ipynb`: Notebook which provides a comparative overview of the analysis and results  
 `karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the South Rimo Glacier in the Karakoram  
-`non-karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the Medvezhiy Glacier in Tajikistan and the Nàłùdäy/Lowell Glacier in Canada  
+`non-karakoram_analysis.ipynb`: Notebook containing the analysis of the data for the Medvezhiy Glacier in Tajikistan and the Sít’ Kusá Glacier in Alaska  
 `environment.yml`: Environment file with required packages for the project  
 `Makefile`: Makefile to build JupyterBook for the repository and manage other tasks  
 
