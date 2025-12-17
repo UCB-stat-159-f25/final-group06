@@ -1,5 +1,7 @@
 # Project Information Overview
 
+[![DOI](https://zenodo.org/badge/1107928407.svg)](https://doi.org/10.5281/zenodo.17960433)
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group06.git/HEAD)
 
 
