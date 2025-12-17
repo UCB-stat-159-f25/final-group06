@@ -1,0 +1,227 @@
+% Created with jtex v.1.0.20
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%  imports  %%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% colors for hyperlinks
+\hypersetup{colorlinks=true, allcolors=blue}
+
+\newcommand{\logo}{
+  \href{https://curvenote.com}{\includegraphics[width=2cm]{curvenote.png}}
+}
+
+\title{Analyzing Surge Type Glacial Velocity and the Presence of the Karakoram Anomaly in Select N. Hemisphere Glaciers}
+
+\author{Ethan Briel \and Param Gandhi \and Eden Lange \and Char Tomlinson}
+
+\newdate{articleDate}{17}{12}{2025}
+\date{\displaydate{articleDate}}
+
+\begin{document}
+\maketitle
+\begin{center}\logo\end{center}
+
+
+\section{Introduction}
+
+Glaciers have become an icon of anthropogenic warming and climate change. It is well known throughout the world that most glaciers are in steep decline. However, there is one small region in Pakistan, the Karakoram, which has emerged as the largest of the very few examples of glaciers continuing to grow today (Hewitt, 2005, p. 339). Glaciers  in this region have exhibited mass stability or even expansion, contrasting the mass loss seen in the  nearby Himalayas and Tibetan Plateau as well as  other mid-latitude glaciers globally (Kapnick et al., 2014, p. 834). The Karakoram has become well known for being an anomaly. Glaciologists have hypothesized factors such as great elevations, relief, and distinctive climatic regimes as responsible for what has become known as the ``Karakoram Anomaly'' (Hewitt, 2005, p. 339). From 2000-2020, ``the region has shown balanced to slightly positive glacier budgets, an increase in glacier ice flow speeds, stable to partially advancing glacier termini and widespread glacier surge activity'' (Farinotti et al., 2020, p. 8).  Surge-type glaciers, like the Karakoram Anamoly, go through a quiescent phase, where flow is normal and slow, as well as an active phase where they surge to a higher flow velocity, often factored 10-100 times the normal flow (Davies, 2020, p. 2202).
+
+This analysis compares the South Rimo Glacier in the Karakoram with two other ``Surge Type'' glaciers: the Medvezhiy Glacier in the Pamir mountains of nearby Tajikistan and the Sít' Kusá Glacier in Alaska. The project seeks to answer whether there is evidence of the Karakoram Anomaly within this comparison, using statistical analysis of glacial velocity. Increased velocity is associated with decreased glacial mass, as a glacier can slide across a bed rock surface faster if there is less mass (due to a decrease in friction) keeping it in place. We do this by creating preprocessing visualizations, analyzing mean velocities over time as well as within seasonality, and visualizing cumulative mean velocity and acceleration trends, combined with overall evaluation and comparison.
+
+\section{Goal of Analysis}
+
+This analysis compares the South Rimo Glacier in the Karakoram with two other ``Surge Type'' glaciers: the Medvezhiy Glacier in the Pamir mountains of nearby Tajikistan and the Sít' Kusá Glacier in Alaska. The project seeks to answer two main questions: Is there evidence of the Karakoram Anomaly within this comparison, as we would expect given prior research on the region; and how does the effect compare to the other two surge-type glaciers we examine, one of which is located geographically close to the Karakoram mountain range, the Medvezhiy Glacier in Tajikistan, and the other, the Sít' Kusá Glacier in Alaska, which has very different climate and located in a completely different region than the other two.
+
+We answer these questions using statistical analysis of glacial velocity. Increased velocity is associated with decreased glacial mass, as a glacier can slide across a bed rock surface faster if there is less mass (due to a decrease in friction) keeping it in place. By creating preprocessing visualizations, analyzing mean velocities over time as well as within seasonality, and visualizing cumulative mean velocity and acceleration trends, we evaluate the velocity trends exhibited and compare.
+
+\section{About the Data}
+
+For this project we utilized the NASA earthaccess python library to get velocity maps for the South Rimo Glacier in the Karakoram mountain range in Pakistan, the Sít' Kusá Glacier in Alaska, and the Medvezhiy Glacier in Tajikistan. For reproducability, the raw data is included in the repository -- data for each glacier is available within the \texttt{data/Karakoram} and \texttt{data/Other\_Glaciers} directories, with no download required for user. If you are interested in downloading the data for further exploration, the eda notebook has lines of code commented out that would enable you to download the dataset we used, as well as the data for other glaciers.
+
+The dataset was trimmed to make each dataset match the time interval of the smallest data set, the Alaskan glacier, in order for more accurate comparison and user readability. Additionally, our datasets are not all of the same density: though we trimmed them all to have the same start and end date, the dataset for the Karakoram glacier is far more robust than the dataset for the Alaskan glacier, which may skew some results.
+
+One assumption we made about the dataset, which are all GeoTIFF format, is that they are all georeferenced correctly and in the same way (i.e. using the same projection), so that each point is mapping to the correct location. It would be unlikely for a dataset like this to be georeferenced differently across a single glacier, and differences in projections across the different glaciers would not be problematic for comparision, so this felt like a safe and necessary assumption to make. Another assumption we made about the dataset is that keeping N/A or missing variables was worth doing, despite it leaving some white spaces on our maps.
+
+\section{Data Exploration}
+
+\subsubsection{Import the necessary packages:}
+
+\begin{verbatim}
+from IPython.display import Image
+\end{verbatim}
+
+\subsection{Important Notes Regarding the Geography of Each Glacier:}
+
+As we begin our exploration of the data, there are a few important aspects of each glacier that are worth noting. All climatic data was retrieved through this incredibly useful tool, in which we input each glacier name and got a wealth of information: \href{https://www.meteoblue.com/en/weather/historyclimate/climatemodelled}{https://www.meteoblue.com/en/weather/historyclimate/climatemodelled}
+
+The Karakoram South Rimo Glacier has an average elevation of approximately 5,588m above sea level (Topographic Maps), approximately 1,000m higher than the The Medvezhiy Glacier in Tajikistan (NASA, 2025), and approximately 2,000m higher than The Sít' Kusá Glacier in Alaska (Coastview, 2024).
+
+The Karakoram South Rimo Glacier is approximately 19 degrees F colder than The Medvezhiy Glacier in Tajikistan on average across all seasons, and approximately 30 degrees F colder than The Sít' Kusá Glacier in Alaska on average across all seasons.
+Interestingly, The Karakoram South Rimo Glacier recieves the least precipation (on average) of all three glaciers, and the Alaskan glacier recieves the most.
+
+This places the Karakoram at the highest elevation, with the coldest temperatures, and the least rainfall.
+
+All three glaciers experience similar seasons, with their highest temperatures occurring in July/August and lowest temperatures occurring between October-February.
+
+\subsection{Mean Velocities Over Time}
+
+We analyzed the mean velocities over time of our three glaciers, starting with the Karakoram glacier.
+
+Through this analysis we strip away the location-based data to look at the average velocities in a more simple, easily-digestible manner. This gave us an initial understanding of the corresponding magnitude size (noting that the scales are different between the two images), and patterns.
+
+\begin{verbatim}
+Image(filename = 'figures/K_meanmag_chart.png', width=600, height=600)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/a87d19dd100f74f9725074b51037087a.png}
+
+\begin{verbatim}
+Image(filename = 'figures/NK_meanmag_chart.png', width=800, height=800)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/a6ae81704092602b4d2f9c52bb206fa1.png}
+
+We can see that all three glaciers experienced a peak of some form around April, 2020, though this was exagerated in the Karakoram data, which returned to its normal fluctuations after that. The Karakoram glacier experiences cyclical velocity changes throughout each month, it appears, unlike the Alaskan and Tajikistan glaciers which seem to fluctuate more randomly -- even experiencing some of their largest velocity magnitudes during the coldest months.
+
+\subsection{Seasonality of Glaciers}
+
+Here we zoom in to look at a mean velocity for each month to get a better understanding of the seasonal velocity changes.
+
+\begin{verbatim}
+Image(filename = 'figures/K_seasonality_chart.png', width=600, height=600)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/e8154630ec032f28ce58ed4925975800.png}
+
+\begin{verbatim}
+Image(filename = 'figures/NK_seasonality_chart.png', width=800, height=800)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/9af804e956b7900db97f687e573b78a0.png}
+
+Similar to the last set of graphics, here we can really see the staggering difference in velocity magnitude across all 3 glaciers, particularly the Tajikistan Glacier, and how the Tajikistan and Karakoram glaciers, which are geographically close to each other, experience similar elevations in velocity magnitudes during the same colder months.
+
+\subsection{Mapping Velocity and Acceleration of Glaciers}
+
+\begin{enumerate}
+\item We analyzed the location-based data through Mean Velocity Magnitude Maps.
+\end{enumerate}
+
+\begin{verbatim}
+Image(filename = 'figures/K_meanmag_map.png', width=600, height=600)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/41621cf26696e73556b8f8392cab0172.png}
+
+\begin{verbatim}
+Image(filename = 'figures/NK_meanmag_map.png', width=1200, height=1200)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/dbdce2b36cc4b07af7dff4fb1c074451.png}
+
+We observe here that the Alaskan Glacier experiences a larger velocity magnitude than either of the other two more geographically close glaciers.
+
+\begin{enumerate}[resume]
+\item We conducted a similar analysis of the acceleration trends of each glacier.
+
+Note: the red indicates negative acceleration, and the blue indicates positive acceleration.
+\end{enumerate}
+
+\begin{verbatim}
+Image(filename = 'figures/K_acceleration_map.png', width=600, height=600)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/f0c864c1d6e3b1663d644d3a75612975.png}
+
+\begin{verbatim}
+Image(filename = 'figures/NK_acceleration_map.png', width=1200, height=1200)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/7f1ef0b8cb7a6d26a8766972a8ed9767.png}
+
+Here we observe that the Alaskan and Karakoram Glaciers exhibit similar acceleration trends, where the glacier itself is accelerating and the area around it is decelerating, while the Tajikistan Glacier appears to be accelerating over the majority of the mapped region, including the glacier area.
+
+\begin{enumerate}[resume]
+\item We calculated glacier velocity statistics for comparison.
+\end{enumerate}
+
+\begin{verbatim}
+Image(filename='figures/glacier_velocity_comparisons_table.png', width=900)
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{files/ddebcd96eccce89bcec917db7407b062.png}
+
+\subsection{Results and Interpretation}
+
+From the figures shown in the table, the Tajikistan glacier appears to be the slowest moving glacier, followed by the Karakoram, then the Alaskan glacier.
+
+From these results it is hard to detect the Karakoram anamoly in action, or see any significant difference between the Karakoram compared to the other two glaciers. It is important to note the size difference in the glaciers, and that we expect, based on previous research, that smaller glaciers will have a higher velocity due to the lower mass decreasing friction between the ground and the glacier, and resulting in faster movement. This is observable in the data. The increased velocity could also be due to the narrowness of the glacier, causing what may be a similar movement of mass to the larger of glaciers to move at a more rapid pace.
+
+While there is insuffient evidence within this surface-level analysis of the Karakoram Anamoly, this could be due to a number of factors that would require further exploration and analysis. Our results are inconclusive, but this analysis is hardly enough to disprove the wealth of pre-existing research suggesting the existence of the Karakoram Anamoly.
+
+\subsection{Further Analysis}
+
+Given the inconclusive results, we have more questions than answers, but this analysis has been a starting point leading us to generate suggestions for continued research.
+
+A relevant area requiring further analysis would be annual precipitation in relation to glacier movement. Is the melt caused by movement accompanied with sufficient snowfall to maintain the size through balanced gains/losses? By only analyzing the velocity we are missing this crucial piece of information regarding the stablization of glaciers. In addition, if it possible to graph the elevation changes of each glacier over time, this would provide a more standardized way of analyzing these changes across each glacier.
+
+Another point for further analysis would be longer trends. Our data only looks at a year in time, but perhaps over longer geological timescales we could find patterns in each glaciers' velocity changes, including seeing surge events that may otherwise heavily skew the data. This data could also be paired with a mapping of climatic features to understand how these changes in velocity might be associated with changes in local climate (like average temperature or precipitation).
+
+We hope this research provides valuable insight for further research on this vital topic.
+
+\subsection{Author Contributions}
+
+\begin{itemize}
+\item Ethan Briel
+
+\begin{itemize}
+\item Created the testing functions
+\item Created the Binder link
+\item Added \texttt{LICENSE}
+\item Converted functions to working a form and added into \texttt{glaciers} package
+\item Initialized \texttt{glaciers} package with appropriate tests
+\item Made the \texttt{.gitignore} file
+\end{itemize}
+
+
+\item Param Ghandi
+
+\begin{itemize}
+\item Worked on EDA in analysis notebooks \texttt{karakoram\_analysis.ipynb} and \texttt{non-karakoram\_analysis.ipynb}
+\item Created \texttt{environment.yml}
+\item Created \texttt{Makefile}
+\item Created \texttt{MyST} site
+\item Created \texttt{/pdf\_builds}
+\item Did final release
+\end{itemize}
+
+
+\item Eden Lange
+
+\begin{itemize}
+\item Wrote all sections in \texttt{main.ipynb} except for the introduction
+\item Completed analysis
+\end{itemize}
+
+
+\item Char Tomlinson
+
+\begin{itemize}
+\item Created the \texttt{README.md}
+\item Wrote Introduction in \texttt{main.ipynb}
+\item Added group photos and biographies to website
+\item Attended Office Hours for Assistance
+\end{itemize}
+\end{itemize}
+
+
+\end{document}

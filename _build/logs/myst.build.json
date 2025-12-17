@@ -1,0 +1,43 @@
+{
+  "input": {
+    "files": [
+      "main.ipynb"
+    ],
+    "opts": {
+      "execute": false,
+      "pdf": true,
+      "tex": false,
+      "typst": false,
+      "docx": false,
+      "md": false,
+      "xml": false,
+      "meca": false,
+      "cff": false,
+      "site": false,
+      "html": false,
+      "all": false,
+      "doiBib": false,
+      "watch": false,
+      "force": false,
+      "checkLinks": false,
+      "strict": false,
+      "ci": false,
+      "maxSizeWebp": 1572864,
+      "keepHost": false
+    }
+  },
+  "exports": [
+    {
+      "format": "pdf",
+      "output": "/home/jovyan/final-group06/pdf_builds/main.pdf",
+      "articles": [
+        {
+          "file": "/home/jovyan/final-group06/main.ipynb",
+          "level": 0
+        }
+      ],
+      "$file": "/home/jovyan/final-group06/main.ipynb",
+      "$project": "/home/jovyan/final-group06"
+    }
+  ]
+}
